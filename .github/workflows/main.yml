@@ -50,10 +50,10 @@ jobs:
       # 8️⃣ Upload and deploy to Hestia
       - name: Upload and extract on server
         run: |
-          scp -o StrictHostKeyChecking=no deploy.zip ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/${{ secrets.SERVER_USER }}/deploy.zip
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
-            cd /home/${{ secrets.SERVER_USER }}/web/yubin.team2lesgo.site/public_html &&
-            unzip -o /home/${{ secrets.SERVER_USER }}/deploy.zip &&
-            rm /home/${{ secrets.SERVER_USER }}/deploy.zip &&
+          scp -o StrictHostKeyChecking=no deploy.zip ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:/home/${{ secrets.SERVER_USERNAME }}/deploy.zip
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "
+            cd /home/${{ secrets.SERVER_USERNAME }}/web/yubin.team2lesgo.site/public_html &&
+            unzip -o /home/${{ secrets.SERVER_USERNAME }}/deploy.zip &&
+            rm /home/${{ secrets.SERVER_USERNAME }}/deploy.zip &&
             php artisan optimize
           "
